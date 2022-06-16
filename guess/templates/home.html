@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Главная страница{% endblock %}</title>
+</head>
+<body>
+  <div>
+    {% block content %}
+    <h2>Угадывание цвета</h2>  
+    <form  method="post">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <p><input type="submit" name="btnform1" value="Угадать"></p>
+    <h3>Догадка:</h3>
+    </form>
+    <p>{{ guess }}</p>
+    <h3>Если догадка верна внесите пожалуйста в форму ниже <br> 
+      число предмета и цвет.</h3>
+    <form method="post">
+      {{ form_ans.as_p }}
+      {% csrf_token %}
+      <p><input type="submit" name="btnform2" value="Ответить"</p>
+    </form>
+    {% endblock %}
+  </div>
+</body>
+</html>
